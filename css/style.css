@@ -1,4 +1,4 @@
-/* base styles */
+/* basic styles */
 body {
     margin: 0;
     padding: 0;
@@ -264,27 +264,26 @@ section {
     opacity  0.55s ease-out 0.05s;
 }
 
-/* Lifestyle: soft golden glow */
+/* Lifestyle w/ a soft golden glow */
 .category-section:nth-of-type(1) .category-image::after {
   background: rgba(244, 208, 63, 0.35); /* gold */
 }
 
-/* Swimwear: cool aqua */
+/* Swimwear w/ a cool aqua */
 .category-section:nth-of-type(2) .category-image::after {
   background: rgba(0, 180, 216, 0.35); /* aqua/teal */
 }
 
-/* Lingerie: soft blush pink */
+/* Lingerie w/ a soft blush pink */
 .category-section:nth-of-type(3) .category-image::after {
   background: rgba(233, 30, 99, 0.3); /* rose */
 }
 
-/* If you add a 4th category (ex: Editorial / Fashion), give it its own tone */
 .category-section:nth-of-type(4) .category-image::after {
   background: rgba(155, 89, 182, 0.35); /* lavender/purple */
 }
 
-/* soft top-to-bottom veil like your cards */
+/* top to bottom veil */
 .category-image::before {
   content: "";
   position: absolute;
@@ -293,7 +292,7 @@ section {
   z-index: 1;
 }
 
-/* reuse your .portfolio-label look on top of the image */
+/* reuse .portfolio-label image */
 .category-image .portfolio-label {
   z-index: 2;              
   font-size: clamp(1.4rem, 2.5vw, 2rem);
@@ -302,7 +301,7 @@ section {
 
 .category-text {
   flex: 1;
-  text-align: left;        /* override .portfolio-section center */
+  text-align: left;        /* To override .portfolio-section center */
   padding: 1.5rem;
 }
 
@@ -320,7 +319,7 @@ section {
   margin: 0;
 }
 
-/* Responsive: stack on mobile */
+/* Responsive stack on mobile */
 @media (max-width: 768px) {
   .category-section,
   .category-section.reverse {
@@ -328,18 +327,17 @@ section {
     text-align: center;
   }
   .category-text { text-align: center; }
-  .category-image img { height: auto; } /* let it grow naturally on small screens */
+  .category-image img { height: auto; }
 }
 
-/* Optional: category-specific border colors */
 .category-lifestyle .category-text {
-  border-color: #d4a373; /* warm goldish tone */
+  border-color: #d4a373; 
 }
 .category-swimwear .category-text {
-  border-color: #3aa7a3; /* aqua */
+  border-color: #3aa7a3; 
 }
 .category-lingerie .category-text {
-  border-color: #d47a8c; /* soft rose */
+  border-color: #d47a8c; 
 }
 
 /* === Divider Line Between Sections === */
@@ -439,10 +437,10 @@ section {
     color: #111;
     cursor: pointer;
     flex: 0 0 auto;
-    z-index: 1100; /* above overlay control */
+    z-index: 1100; /* my above overlay control */
 }
 
-/* Small icon on left (keeps original layout) */
+/* Small icon on left to keep origin layout */
 .lily-icon {
     display: flex;
     flex: 0 0 auto;
@@ -458,17 +456,8 @@ section {
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
-/* ---------- NAVIGATION RULES (mobile-first) ---------- */
-
-/* NOTE: nav-overlay contains the actual nav (nav.nav-links in your HTML)
-   Mobile: overlay covers screen and centers the stacked links
-   Desktop: overlay becomes static (inline nav), animation/hidden states disabled
-*/
-
-/* 1) Base .nav-links anchor: single underline (only ::after), no text-decoration */
+/*  Nav for Mobile  */
 .nav-links {
-    /* keep the old absolute positioning for the special centered header case,
-       but we will override on mobile via overlay behavior */
     position: absolute;
     top: 80px;
     left: 50%;
@@ -482,20 +471,20 @@ section {
     padding: 0;
 }
 
-/* anchors - base (mobile overlay size by default; desktop override below) */
+
 .nav-links a {
     font-family: 'Raleway', sans-serif;
     position: relative;
-    text-decoration: none;   /* remove browser underline (fixes double-line) */
+    text-decoration: none;  
     color: #111;
-    font-size: clamp(2rem, 4vw, 3rem); /* big for overlay; will be smaller on desktop */
+    font-size: clamp(2rem, 4vw, 3rem); 
     text-align: center;
     transition: transform 0.25s ease, color 0.25s ease;
     padding: 0.15rem 0.2rem;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* single underline element (only ::after) used everywhere */
+/* single underline element */
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -520,7 +509,7 @@ section {
     transform: translateX(-50%) scaleX(1);
 }
 
-/* 2) Overlay container (mobile) - centered fullscreen */
+/*overlay container (for mobile) - centered fullscreen */
 .nav-overlay {
     position: fixed;
     inset: 0;
@@ -530,7 +519,6 @@ section {
     background: rgba(255,255,255,0.18);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    /* hide off-screen by default using transform (JS toggles .active) */
     transform: translateX(100%);
     transition: transform 320ms ease, opacity 220ms ease;
     opacity: 1;
@@ -538,7 +526,7 @@ section {
     z-index: 1000;
 }
 
-/* overlay active: slide in */
+/* overlay active slide in */
 .nav-overlay.active {
     transform: translateX(0);
     pointer-events: auto;
@@ -558,7 +546,6 @@ section {
     align-items: center;
     gap: 2.25rem;
     text-align: center;
-    /* animation entry: anchors start invisible and slide up */
 }
 
 /* entry animation initial state for overlay anchors */
@@ -576,13 +563,9 @@ section {
 .nav-overlay.active .nav-links a:nth-child(2) { animation-delay: 0.20s; }
 .nav-overlay.active .nav-links a:nth-child(3) { animation-delay: 0.34s; }
 
-/* overlay anchor hover: slightly lower contrast for mobile */
+/* overlay anchor hover slightly lower contrast for mobile */
 .nav-overlay .nav-links a:hover { color: #111; opacity: .85; }
 
-/* overlay anchor underline is the same ::after (no duplicates) */
-/* we intentionally keep the underline dark for overlay so it's visible. */
-
-/* make sure the lightweight fallback class still works (you had .nav-links.show elsewhere) */
 .nav-links.show {
     opacity: 1;
     transform: translateY(0);
@@ -660,7 +643,7 @@ section {
         display: inline-blocks;
     }
 
-    /* nav-overlay becomes just a wrapper (no fullscreen) */
+    /* nav-overlay becomes just a wrapper */
     .nav-overlay {
         position: static;
         inset: auto;
@@ -685,7 +668,7 @@ section {
         gap: 2rem;
     }
 
-    /* anchors: normal smaller header size */
+    /* normal smaller header size */
     .nav-links a {
         display: inline-block;
         font-size: 1rem;
@@ -704,7 +687,7 @@ section {
         animation: none !important;
     }
 
-    /* subtle hover color on desktop + single underline remains */
+    /* subtle hover color on desktop + single underline stays */
     .nav-links a:hover { color: #f4d03f; }
     .nav-links a:hover::after { background: #f4d03f; transform: translateX(-50%) scaleX(1); }
 
@@ -747,7 +730,7 @@ section {
         font-size: 1.85rem;
     }
 
-    /* Hide the inline header nav copy (if present) — we use the overlay */
+    /* Hide the inline header nav copy */
     .header-container > .nav-links {
         display: none !important;
         opacity: 0;
@@ -922,7 +905,7 @@ section {
     .header-container { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
 }
 
-/* reorder helpers (keeps your original layout orders) */
+/* reorder helpers  */
 .bio-image { order: 1; }
 .bio-text { order: 0; }
 .measurements { order: 2; }
@@ -1019,7 +1002,7 @@ section {
 .form-field textarea {
   min-height: 54px;
   transition: min-height .28s ease;
-  resize: vertical; /* or 'none' if you don’t want manual resize */
+  resize: vertical;
 }
 .form-field textarea:focus {
   min-height: 140px;
