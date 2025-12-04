@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lily's Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+
+       <div class="lily-icon">
+        <img src="backround-image/lily.png" alt="Lily Flower">
+      </div>
+
+      <h1 class="logo">Aurelie Reis</h1>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation"><i class="fas fa-bars"></i>
+      </button>
+
+      <div class="nav-overlay" id="nav-overlay">
+      <nav class="nav-links" id="nav-menu">
+        <a href="bio.html">Bio</a>
+        <a href="portfolio.html">Model</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      </div>
+
+    </div>
+  </header>
+
+<section class="book">
+  <h2 class="book__title">BOOK</h2>
+
+  <div class="book__masonry">
+    <a class="book__item"><img src="model_pics/life_1.jpeg" alt="Lifestyle 1" loading="lazy"></a>
+    <a class="book__item"><img src="model_pics/life_2.jpeg" alt="Lifestyle 2" loading="lazy"></a>
+    <a class="book__item"><img src="model_pics/life_3_edited.jpg" alt="Lifestyle 3" loading="lazy"></a>
+    <a class="book__item"><img src="model_pics/life_4.jpeg" alt="Lifestyle 4" loading="lazy"></a>
+    <a class="book__item"><img src="model_pics/life_land_1.jpeg" alt="Lifestyle 5" loading="lazy"></a>
+    <a class="book__item"><img src="model_pics/life_land_2_edited.png" alt="Lifestyle 6" loading="lazy"></a>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" aria-label="Close">×</button>
+  <img id="lightbox-img" alt="">
+</div>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>
